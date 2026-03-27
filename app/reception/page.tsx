@@ -965,7 +965,7 @@ export default function Home() {
       title: "",
       subtitle: "Reception",
       emoji: "",
-      date: "Saturday, April 11th 2026",
+      date: "Saturday, April 12th 2026",
       venue: "Poroppad,\nThrikkaripur",
       time: "7:30 PM Onwards",
       index: 1,
