@@ -653,7 +653,7 @@ function CountdownTimer() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 });
 
   useEffect(() => {
-    const target = new Date("2026-04-06T18:00:00+05:30").getTime();
+    const target = new Date("2026-04-12T18:00:00+05:30").getTime();
 
     const calc = () => {
       const now = Date.now();
@@ -1144,7 +1144,7 @@ export default function Home() {
                 <SectionDivider />
               </motion.div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-14 max-w-5xl mx-auto">
+              <div className="grid grid-cols-1  gap-8 md:gap-14 max-w-5xl mx-auto">
                 {events.map((event) => (
                   <EventCard key={event.title} {...event} />
                 ))}
