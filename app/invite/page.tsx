@@ -993,7 +993,7 @@ export default function Home() {
           mediaSrc="/ashmlu.jpg"
           bgImageSrc="/invite/Background.png"
           names={["ASLAM", "ASHMILA"]}
-          date="APR 11 . 2026"
+          date="APR 12 . 2026"
         >
           {/* INVITATION MESSAGE */}
           <section className="py-24 md:py-36 bg-royal relative overflow-hidden texture-lace-cutout">
