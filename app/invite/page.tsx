@@ -18,6 +18,7 @@ import {
   Heart,
   Sparkles,
   Calendar,
+  CalendarPlus,
   Clock,
   Star,
   Flower2,
@@ -747,6 +748,7 @@ interface EventCardProps {
   venue: string;
   time: string;
   index: number;
+  calendarUrl: string;
 }
 
 function EventCard({
@@ -757,6 +759,7 @@ function EventCard({
   venue,
   time,
   index,
+  calendarUrl,
 }: EventCardProps) {
   return (
     <motion.div
@@ -818,7 +821,7 @@ function EventCard({
         </div>
       </div>
 
-      <div className="flex justify-center w-full mt-auto pt-10 pb-8">
+      <div className="flex flex-col items-center justify-center gap-4 w-full mt-auto pt-10 pb-8">
         <motion.a
           href={
             index === 0
@@ -833,6 +836,17 @@ function EventCard({
         >
           <Navigation className="w-3.5 h-3.5 text-[#A88B5C] group-hover:animate-pulse" />
           Navigate to {index === 0 ? "Venue" : "Residence"}
+        </motion.a>
+        <motion.a
+          href={calendarUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="inline-flex items-center justify-center gap-3 text-xs text-[#F8F5EE] hover:text-white transition-all font-body uppercase tracking-[0.3em] border border-[#A88B5C]/40 rounded-full px-8 py-3.5 hover:bg-[#A88B5C]/10 backdrop-blur-sm group hover:border-[#A88B5C]"
+        >
+          <CalendarPlus className="w-3.5 h-3.5 text-[#A88B5C] group-hover:animate-pulse" />
+          Add to Calendar
         </motion.a>
       </div>
     </motion.div>
@@ -960,6 +974,8 @@ export default function Home() {
       venue: "Poroppad,\nThrikkaripur",
       time: "7:30 PM Onwards",
       index: 1,
+      calendarUrl:
+        "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Reception%20-%20Aslam%20Weds%20Ashmila&dates=20260412T193000/20260412T230000&location=Poroppad%2C%20Thrikkaripur&ctz=Asia/Kolkata",
     },
   ];
 

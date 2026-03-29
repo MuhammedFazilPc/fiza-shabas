@@ -18,6 +18,7 @@ import {
   Heart,
   Sparkles,
   Calendar,
+  CalendarPlus,
   Clock,
   Star,
   Flower2,
@@ -747,6 +748,7 @@ interface EventCardProps {
   venue: string;
   time: string;
   index: number;
+  calendarUrl: string;
 }
 
 function EventCard({
@@ -757,6 +759,7 @@ function EventCard({
   venue,
   time,
   index,
+  calendarUrl,
 }: EventCardProps) {
   return (
     <motion.div
@@ -809,17 +812,30 @@ function EventCard({
         </div>
       </div>
 
-      <motion.a
-        href="https://maps.app.goo.gl/bpbi1zKhA1PiFgCK8"
-        target="_blank"
-        rel="noopener noreferrer"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="inline-flex items-center justify-center gap-3 mt-10 mb-20 text-xs text-[#F8F5EE] hover:text-white transition-all font-body uppercase tracking-[0.3em] border border-[#A88B5C]/40 rounded-full px-8 py-3.5 hover:bg-[#A88B5C]/10 backdrop-blur-sm group hover:border-[#A88B5C]"
-      >
-        <Navigation className="w-3.5 h-3.5 text-[#A88B5C] group-hover:animate-pulse" />
-        Navigate
-      </motion.a>
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 mb-20">
+        <motion.a
+          href="https://maps.app.goo.gl/bpbi1zKhA1PiFgCK8"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="inline-flex items-center justify-center gap-3 text-xs text-[#F8F5EE] hover:text-white transition-all font-body uppercase tracking-[0.3em] border border-[#A88B5C]/40 rounded-full px-8 py-3.5 hover:bg-[#A88B5C]/10 backdrop-blur-sm group hover:border-[#A88B5C]"
+        >
+          <Navigation className="w-3.5 h-3.5 text-[#A88B5C] group-hover:animate-pulse" />
+          Navigate
+        </motion.a>
+        <motion.a
+          href={calendarUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="inline-flex items-center justify-center gap-3 text-xs text-[#F8F5EE] hover:text-white transition-all font-body uppercase tracking-[0.3em] border border-[#A88B5C]/40 rounded-full px-8 py-3.5 hover:bg-[#A88B5C]/10 backdrop-blur-sm group hover:border-[#A88B5C]"
+        >
+          <CalendarPlus className="w-3.5 h-3.5 text-[#A88B5C] group-hover:animate-pulse" />
+          Add to Calendar
+        </motion.a>
+      </div>
 
       <div className="w-full h-px bg-gradient-to-r from-transparent via-[#A88B5C]/30 to-transparent mb-16 max-w-md mx-auto" />
 
@@ -949,6 +965,8 @@ export default function Home() {
       venue: "Mythree Auditorium\n26MM+HHF, Kamanam, Kerala 679325",
       time: "11:00 AM - 2:00 PM",
       index: 0,
+      calendarUrl:
+        "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Nikah%20-%20Aslam%20Weds%20Ashmila&dates=20260406T110000/20260406T140000&location=Mythree%20Auditorium%2C%2026MM%2BHHF%2C%20Kamanam%2C%20Kerala%20679325&ctz=Asia/Kolkata",
     },
     // Walima card hidden for now
     // {
