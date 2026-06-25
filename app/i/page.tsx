@@ -582,7 +582,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="text-3xl md:text-5xl font-serif text-[#1B365D] font-bold tracking-widest"
             >
-              ASHMILA
+              FIZA ASHEEM
             </motion.h2>
             <motion.span
               initial={{ opacity: 0, scale: 0 }}
@@ -598,7 +598,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
               transition={{ delay: 0.9, duration: 0.8 }}
               className="text-3xl md:text-5xl font-serif text-[#1B365D] font-bold tracking-widest"
             >
-              ASLAM
+              SHABAS
             </motion.h2>
           </div>
         </motion.div>
@@ -832,7 +832,7 @@ function EventCard({
 
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 mb-20">
         <motion.a
-          href="https://maps.app.goo.gl/bpbi1zKhA1PiFgCK8"
+          href="https://maps.app.goo.gl/XJbeoosD85EDrzdM9"
           target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.05 }}
@@ -996,7 +996,7 @@ export default function Home() {
       time: "11:00 AM - 2:00 PM",
       index: 0,
       calendarUrl:
-        "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Nikah%20-%20Aslam%20Weds%20Ashmila&dates=20260406T110000/20260406T140000&location=Mythree%20Auditorium%2C%2026MM%2BHHF%2C%20Kamanam%2C%20Kerala%20679325&ctz=Asia/Kolkata",
+        "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Marriage%20-%20SHABAS%20Weds%20FIZA ASHEEM&dates=20260406T110000/20260406T140000&location=Mythree%20Auditorium%2C%2026MM%2BHHF%2C%20Kamanam%2C%20Kerala%20679325&ctz=Asia/Kolkata",
     },
     // Walima card hidden for now
     // {
@@ -1039,7 +1039,7 @@ export default function Home() {
           mediaType="image"
           mediaSrc="/ashmlu.jpg"
           bgImageSrc="/invite/Background.png"
-          names={["ASHMILA", "ASLAM"]}
+          names={["FIZA ASHEEM", "SHABAS"]}
           date="APR 6. 2026"
         >
           {/* INVITATION MESSAGE */}
@@ -1085,7 +1085,7 @@ export default function Home() {
                   animate={{ opacity: [0.8, 1, 0.8] }}
                   transition={{ duration: 4, repeat: Infinity }}
                 >
-                  Nikah
+                  Marriage
                 </motion.h2>
                 <p className="text-[#8A7454] text-xs md:text-sm tracking-[0.3em] uppercase font-body leading-loose mb-2">
                   Under the blessings of Allah (SWT)
@@ -1107,7 +1107,7 @@ export default function Home() {
                   className="flex items-center justify-center gap-2 md:gap-12 w-full"
                 >
                   <h3 className="text-4xl md:text-7xl lg:text-[5.5rem] text-[#A88B5C] drop-shadow-md leading-tight text-center flex-1">
-                    Ashmila Parveen
+                    FIZA ASHEEM   
                   </h3>
 
                   <span className="text-3xl md:text-6xl lg:text-7xl text-[#8A7454] opacity-70 shrink-0 px-1 md:px-0">
@@ -1115,7 +1115,7 @@ export default function Home() {
                   </span>
 
                   <h3 className="text-4xl md:text-7xl lg:text-[5.5rem] text-[#A88B5C] drop-shadow-md leading-tight text-center flex-1">
-                    Mohammed Aslam
+                      SHABAS
                   </h3>
                 </motion.div>
 
@@ -1138,7 +1138,7 @@ export default function Home() {
                   <div className="text-center flex-1 flex flex-col items-center">
                     <div className="w-12 md:w-24 h-px bg-gradient-to-r from-transparent via-[#C09A53] to-transparent opacity-60 mb-4 md:mb-6" />
                     <p className="max-w-[160px] md:max-w-[280px] px-1 md:px-4">
-                      S/o Mohammed Ashraf K <br /> & Naseeba S
+                      S/o     RAFEEQ C K K <br /> & SHAFEEMA M P S
                     </p>
                   </div>
                 </motion.div>
@@ -1220,7 +1220,7 @@ export default function Home() {
 
           {/* Floating Location Button */}
           <motion.a
-            href="https://maps.app.goo.gl/bpbi1zKhA1PiFgCK8"
+            href="https://maps.app.goo.gl/XJbeoosD85EDrzdM9"
             target="_blank"
             rel="noopener noreferrer"
             className="fixed bottom-6 right-6 z-50 bg-[#08111D] text-white px-5 py-3 rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.4)] border border-gold/30 flex items-center gap-2.5 font-body text-xs tracking-[0.15em] uppercase hover:bg-[#1B365D] hover:border-gold/50 transition-all"

@@ -52,7 +52,7 @@ export function AudioPlayer() {
 
   return (
     <>
-      <audio ref={audioRef} src="/piano-audio.mp3" loop preload="auto" />
+      <audio ref={audioRef} src="/wedding-nasheed.mp3" loop preload="auto" />
       <button
         onClick={toggleMute}
         className="fixed bottom-6 left-6 z-[100] w-12 h-12 bg-[#08111D]/80 backdrop-blur-md rounded-full flex items-center justify-center border border-[#A88B5C]/40 shadow-lg text-[#F8F5EE] hover:scale-110 hover:bg-[#A88B5C]/20 transition-all duration-300"

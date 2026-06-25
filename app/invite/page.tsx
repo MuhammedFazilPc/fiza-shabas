@@ -570,7 +570,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="text-3xl md:text-5xl font-serif text-[#1B365D] font-bold tracking-widest"
             >
-              ASLAM
+              SHABAS
             </motion.h2>
             <motion.span
               initial={{ opacity: 0, scale: 0 }}
@@ -586,7 +586,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
               transition={{ delay: 0.9, duration: 0.8 }}
               className="text-3xl md:text-5xl font-serif text-[#1B365D] font-bold tracking-widest"
             >
-              ASHMILA
+              FIZA ASHEEM
             </motion.h2>
           </div>
         </motion.div>
@@ -825,7 +825,7 @@ function EventCard({
         <motion.a
           href={
             index === 0
-              ? "https://maps.app.goo.gl/bpbi1zKhA1PiFgCK8"
+              ? "https://maps.app.goo.gl/XJbeoosD85EDrzdM9"
               : "https://maps.app.goo.gl/SbWcm32MBzXKHUpK6"
           }
           target="_blank"
@@ -975,7 +975,7 @@ export default function Home() {
       time: "7:30 PM Onwards",
       index: 1,
       calendarUrl:
-        "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Reception%20-%20Aslam%20Weds%20Ashmila&dates=20260412T193000/20260412T230000&location=Poroppad%2C%20Thrikkaripur&ctz=Asia/Kolkata",
+        "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Reception%20-%20SHABAS%20Weds%20FIZA ASHEEM&dates=20260412T193000/20260412T230000&location=Poroppad%2C%20Thrikkaripur&ctz=Asia/Kolkata",
     },
   ];
 
@@ -1008,7 +1008,7 @@ export default function Home() {
           mediaType="image"
           mediaSrc="/ashmlu.jpg"
           bgImageSrc="/invite/Background.png"
-          names={["ASLAM", "ASHMILA"]}
+          names={["SHABAS", "FIZA ASHEEM"]}
           date="APR 12 . 2026"
         >
           {/* INVITATION MESSAGE */}
@@ -1039,7 +1039,7 @@ export default function Home() {
                   animate={{ opacity: [0.8, 1, 0.8] }}
                   transition={{ duration: 4, repeat: Infinity }}
                 >
-                  Nikah
+                  Marriage
                 </motion.h2>
                 <p className="text-[#8A7454] text-xs md:text-sm tracking-[0.3em] uppercase font-body leading-loose mb-2">
                   Under the blessings of Allah (SWT)
@@ -1061,7 +1061,7 @@ export default function Home() {
                   className="flex items-center justify-center gap-2 md:gap-12 w-full"
                 >
                   <h3 className="text-4xl md:text-7xl lg:text-[5.5rem] text-[#A88B5C] drop-shadow-md leading-tight text-center flex-1">
-                    Mohammed Aslam
+                      SHABAS
                   </h3>
 
                   <span className="text-3xl md:text-6xl lg:text-7xl text-[#8A7454] opacity-70 shrink-0 px-1 md:px-0">
@@ -1069,7 +1069,7 @@ export default function Home() {
                   </span>
 
                   <h3 className="text-4xl md:text-7xl lg:text-[5.5rem] text-[#A88B5C] drop-shadow-md leading-tight text-center flex-1">
-                    Ashmila Parveen
+                    FIZA ASHEEM   
                   </h3>
                 </motion.div>
 
@@ -1084,7 +1084,7 @@ export default function Home() {
                   <div className="text-center flex-1 flex flex-col items-center">
                     <div className="w-12 md:w-24 h-px bg-gradient-to-r from-transparent via-[#C09A53] to-transparent opacity-60 mb-4 md:mb-6" />
                     <p className="max-w-[160px] md:max-w-[280px] px-1 md:px-4">
-                      S/o Mohammed Ashraf K <br /> & Naseeba S
+                      S/o     RAFEEQ C K K <br /> & SHAFEEMA M P S
                     </p>
                   </div>
                   <div className="w-[50px] md:w-[150px] lg:w-[180px] shrink-0" />{" "}
