@@ -667,7 +667,13 @@ function CountdownTimer() {
       };
     };
 
-    let timer: ReturnType<typeof setInterval>;
+    const timer = setInterval(() => {
+      const { days, hours, minutes, isReached } = calc();
+      setTimeLeft({ days, hours, minutes });
+      if (isReached) {
+        clearInterval(timer);
+      }
+    }, 60000);
 
     const updateTime = () => {
       const { days, hours, minutes, isReached } = calc();
@@ -678,7 +684,7 @@ function CountdownTimer() {
     };
 
     updateTime();
-    timer = setInterval(updateTime, 60000);
+    // timer = setInterval(updateTime, 60000);
     return () => clearInterval(timer);
   }, []);
 
@@ -1016,7 +1022,7 @@ export default function Home() {
 
       {!isLoading && (
         <ScrollExpandMedia
-          mediaType="image"
+          // mediaType="image"
           mediaSrc="/shabafiz.jpg"
           bgImageSrc="/invite/Background.png"
           names={["SHABAZ", "FIZA ASHEEM"]}
@@ -1072,7 +1078,7 @@ export default function Home() {
                   className="flex items-center justify-center gap-2 md:gap-12 w-full"
                 >
                   <h3 className="text-4xl md:text-7xl lg:text-[5.5rem] text-[#A88B5C] drop-shadow-md leading-tight text-center flex-1">
-                      SHABAZ
+                    SHABAZ
                   </h3>
 
                   <span className="text-3xl md:text-6xl lg:text-7xl text-[#8A7454] opacity-70 shrink-0 px-1 md:px-0">
@@ -1080,7 +1086,7 @@ export default function Home() {
                   </span>
 
                   <h3 className="text-4xl md:text-7xl lg:text-[5.5rem] text-[#A88B5C] drop-shadow-md leading-tight text-center flex-1">
-                    FIZA ASHEEM   
+                    FIZA ASHEEM
                   </h3>
                 </motion.div>
 
@@ -1095,7 +1101,7 @@ export default function Home() {
                   <div className="text-center flex-1 flex flex-col items-center">
                     <div className="w-12 md:w-24 h-px bg-gradient-to-r from-transparent via-[#C09A53] to-transparent opacity-60 mb-4 md:mb-6" />
                     <p className="max-w-[160px] md:max-w-[280px] px-1 md:px-4">
-                      S/o     RAFEEQ C K K <br /> & SHAFEEMA M P S
+                      S/o RAFEEQ C K K <br /> & SHAFEEMA M P S
                     </p>
                   </div>
                   <div className="w-[50px] md:w-[150px] lg:w-[180px] shrink-0" />{" "}
