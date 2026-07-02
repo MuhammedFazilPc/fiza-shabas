@@ -1,20 +1,11 @@
 "use client";
 
-import {
-  useEffect,
-  useRef,
-  useState,
-  ReactNode,
-  TouchEvent,
-  WheelEvent,
-} from "react";
+import { useEffect, useRef, useState, ReactNode } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 interface ScrollExpandMediaProps {
-  mediaType?: "video" | "image";
   mediaSrc: string;
-  posterSrc?: string;
   bgImageSrc: string;
   title?: string;
   date?: string;
@@ -25,9 +16,7 @@ interface ScrollExpandMediaProps {
 }
 
 const ScrollExpandMedia = ({
-  mediaType = "video",
   mediaSrc,
-  posterSrc,
   bgImageSrc,
   title,
   date,
@@ -38,8 +27,6 @@ const ScrollExpandMedia = ({
 }: ScrollExpandMediaProps) => {
   const [scrollProgress, setScrollProgress] = useState<number>(0);
   const [showContent, setShowContent] = useState<boolean>(false);
-  const [mediaFullyExpanded, setMediaFullyExpanded] = useState<boolean>(false);
-  const [touchStartY, setTouchStartY] = useState<number>(0);
   const [isMobileState, setIsMobileState] = useState<boolean>(false);
 
   const sectionRef = useRef<HTMLDivElement | null>(null);
@@ -54,129 +41,29 @@ const ScrollExpandMedia = ({
   const contentY = useTransform(scrollYProgress, [0, 0.5], [40, 0]);
 
   useEffect(() => {
-    setScrollProgress(0);
-    setShowContent(false);
-    setMediaFullyExpanded(false);
-  }, [mediaType]);
+    const updateScrollProgress = () => {
+      if (!sectionRef.current) return;
 
-  useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      // Allow scrolling down normally if fully expanded
-      if (mediaFullyExpanded && e.deltaY > 0) {
-        return;
-      }
+      const rect = sectionRef.current.getBoundingClientRect();
+      const heroTravelDistance = Math.max(window.innerHeight * 0.85, 220);
+      const nextProgress = Math.min(
+        Math.max((0 - rect.top) / heroTravelDistance, 0),
+        1,
+      );
 
-      if (mediaFullyExpanded && e.deltaY < 0 && window.scrollY <= 5) {
-        setMediaFullyExpanded(false);
-        e.preventDefault();
-      } else if (!mediaFullyExpanded) {
-        e.preventDefault();
-        const scrollDelta = e.deltaY * 0.0009;
-        const newProgress = Math.min(
-          Math.max(scrollProgress + scrollDelta, 0),
-          1,
-        );
-        setScrollProgress(newProgress);
-
-        if (newProgress >= 1) {
-          setMediaFullyExpanded(true);
-          setShowContent(true);
-        } else if (newProgress < 0.75) {
-          setShowContent(false);
-        }
-      }
+      setScrollProgress(nextProgress);
+      setShowContent(nextProgress >= 0.35);
     };
 
-    const handleTouchStart = (e: TouchEvent) => {
-      setTouchStartY(e.touches[0].clientY);
-    };
-
-    const handleTouchMove = (e: TouchEvent) => {
-      if (!touchStartY) return;
-
-      const touchY = e.touches[0].clientY;
-      const deltaY = touchStartY - touchY;
-
-      // Allow normal scroll down when expanded
-      if (mediaFullyExpanded && deltaY > 0) {
-        // If we're at the very top, the browser might have ignored native scroll for this swipe
-        // because we prevented default earlier. So we manually scroll to bridge the gap smoothly.
-        if (window.scrollY < 10 && e.cancelable) {
-          window.scrollBy({ top: deltaY, behavior: "auto" });
-          setTouchStartY(touchY);
-          e.preventDefault();
-        }
-        return;
-      }
-
-      if (mediaFullyExpanded && deltaY < -20 && window.scrollY <= 5) {
-        setMediaFullyExpanded(false);
-        e.preventDefault();
-      } else if (!mediaFullyExpanded) {
-        e.preventDefault();
-        // Increase sensitivity for mobile, especially when scrolling back
-        const scrollFactor = deltaY < 0 ? 0.008 : 0.005; // Higher sensitivity for scrolling back
-        const scrollDelta = deltaY * scrollFactor;
-        const newProgress = Math.min(
-          Math.max(scrollProgress + scrollDelta, 0),
-          1,
-        );
-        setScrollProgress(newProgress);
-
-        if (newProgress >= 1) {
-          setMediaFullyExpanded(true);
-          setShowContent(true);
-        } else if (newProgress < 0.75) {
-          setShowContent(false);
-        }
-
-        setTouchStartY(touchY);
-      }
-    };
-
-    const handleTouchEnd = (): void => {
-      setTouchStartY(0);
-    };
-
-    const handleScroll = (): void => {
-      if (!mediaFullyExpanded) {
-        window.scrollTo(0, 0);
-      }
-    };
-
-    window.addEventListener("wheel", handleWheel as unknown as EventListener, {
-      passive: false,
-    });
-    window.addEventListener("scroll", handleScroll as EventListener);
-    window.addEventListener(
-      "touchstart",
-      handleTouchStart as unknown as EventListener,
-      { passive: false },
-    );
-    window.addEventListener(
-      "touchmove",
-      handleTouchMove as unknown as EventListener,
-      { passive: false },
-    );
-    window.addEventListener("touchend", handleTouchEnd as EventListener);
+    updateScrollProgress();
+    window.addEventListener("scroll", updateScrollProgress, { passive: true });
+    window.addEventListener("resize", updateScrollProgress);
 
     return () => {
-      window.removeEventListener(
-        "wheel",
-        handleWheel as unknown as EventListener,
-      );
-      window.removeEventListener("scroll", handleScroll as EventListener);
-      window.removeEventListener(
-        "touchstart",
-        handleTouchStart as unknown as EventListener,
-      );
-      window.removeEventListener(
-        "touchmove",
-        handleTouchMove as unknown as EventListener,
-      );
-      window.removeEventListener("touchend", handleTouchEnd as EventListener);
+      window.removeEventListener("scroll", updateScrollProgress);
+      window.removeEventListener("resize", updateScrollProgress);
     };
-  }, [scrollProgress, mediaFullyExpanded, touchStartY]);
+  }, []);
 
   useEffect(() => {
     const checkIfMobile = (): void => {
@@ -189,8 +76,8 @@ const ScrollExpandMedia = ({
     return () => window.removeEventListener("resize", checkIfMobile);
   }, []);
 
-  // We calculate target dimensions to match the image's original aspect ratio (1024x687 => ~1.49)
-  const imgRatio = 1024 / 687;
+  // We calculate target dimensions to match the image's original aspect ratio (1375x768 => ~1.79)
+  const imgRatio = 1375 / 768;
   const winW = typeof window !== "undefined" ? window.innerWidth : 1000;
   const winH = typeof window !== "undefined" ? window.innerHeight : 1000;
 
@@ -207,7 +94,7 @@ const ScrollExpandMedia = ({
   }
 
   const initialW = 300;
-  const initialH = isMobileState ? 250 : 400;
+  const initialH = isMobileState ? 330 : 400;
 
   const mediaWidth = initialW + scrollProgress * (targetW - initialW);
   const mediaHeight = initialH + scrollProgress * (targetH - initialH);

@@ -494,7 +494,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
 
     // Preload the hero image during the loading screen
     const img = new window.Image();
-    img.src = "/ashmlu.jpg";
+    img.src = "/shabafiz.jpg";
 
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -598,7 +598,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
               transition={{ delay: 0.9, duration: 0.8 }}
               className="text-3xl md:text-5xl font-serif text-[#1B365D] font-bold tracking-widest"
             >
-              SHABAS
+              SHABAZ
             </motion.h2>
           </div>
         </motion.div>
@@ -898,7 +898,7 @@ function InfoCard({ icon, title, description, index }: InfoCardProps) {
       }}
     >
       <div className="absolute inset-0 bg-[#1B365D]/50 pointer-events-none" />
-      <img
+      <Image
         src="/mandala-pattern.png"
         alt=""
         className="absolute inset-0 w-full h-full object-cover opacity-[0.1] pointer-events-none"
@@ -996,7 +996,7 @@ export default function Home() {
       time: "11:00 AM - 2:00 PM",
       index: 0,
       calendarUrl:
-        "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Marriage%20-%20SHABAS%20Weds%20FIZA ASHEEM&dates=20260406T110000/20260406T140000&location=Mythree%20Auditorium%2C%2026MM%2BHHF%2C%20Kamanam%2C%20Kerala%20679325&ctz=Asia/Kolkata",
+        "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Marriage%20-%20SHABAZ%20Weds%20FIZA ASHEEM&dates=20260406T110000/20260406T140000&location=Mythree%20Auditorium%2C%2026MM%2BHHF%2C%20Kamanam%2C%20Kerala%20679325&ctz=Asia/Kolkata",
     },
     // Walima card hidden for now
     // {
@@ -1013,10 +1013,11 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-midnight text-[#6C593E] overflow-x-hidden selection:bg-gold/20 relative">
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <img
+        <Image
           src="/invite/Background.png"
           alt=""
-          className="w-full h-full object-cover opacity-5"
+          fill
+          className="object-cover opacity-5"
           style={{ willChange: "transform" }}
         />
       </div>
@@ -1036,10 +1037,9 @@ export default function Home() {
 
       {!isLoading && (
         <ScrollExpandMedia
-          mediaType="image"
-          mediaSrc="/ashmlu.jpg"
+          mediaSrc="/shabafiz.jpg"
           bgImageSrc="/invite/Background.png"
-          names={["FIZA ASHEEM", "SHABAS"]}
+          names={["FIZA ASHEEM", "SHABAZ"]}
           date="APR 6. 2026"
         >
           {/* INVITATION MESSAGE */}
@@ -1115,7 +1115,7 @@ export default function Home() {
                   </span>
 
                   <h3 className="text-4xl md:text-7xl lg:text-[5.5rem] text-[#A88B5C] drop-shadow-md leading-tight text-center flex-1">
-                      SHABAS
+                      SHABAZ
                   </h3>
                 </motion.div>
 
@@ -1155,9 +1155,10 @@ export default function Home() {
                   backdropFilter: "blur(4px)",
                 }}
               >
-                <img
+                <Image
                   src="/mughal-floral.png"
                   alt=""
+                  fill
                   className="absolute inset-0 w-full h-full object-cover opacity-[0.1] pointer-events-none"
                 />
                 <h2 className="text-3xl md:text-4xl font-serif text-gold-shimmer tracking-widest mb-6">
@@ -1246,7 +1247,7 @@ export default function Home() {
           {/* Footer */}
           <footer className="bg-[#08111D] text-[#F8F5EE] py-12 text-center border-t border-[#8A7454]/20 relative overflow-hidden">
             <div className="absolute bottom-0 inset-x-0 w-full pointer-events-none z-0 flex justify-center opacity-60">
-              <img
+              <Image
                 src="/invite/Shape.png"
                 alt=""
                 className="w-[800px] h-auto translate-y-1/2 opacity-5"

@@ -488,7 +488,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
 
     // Preload the hero image during the loading screen
     const img = new window.Image();
-    img.src = "/ashmlu.jpg";
+    img.src = "/shabafiz.jpg";
 
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -570,7 +570,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="text-3xl md:text-5xl font-serif text-[#1B365D] font-bold tracking-widest"
             >
-              SHABAS
+              SHABAZ
             </motion.h2>
             <motion.span
               initial={{ opacity: 0, scale: 0 }}
@@ -975,7 +975,7 @@ export default function Home() {
       time: "11:00 AM - 2:00 PM",
       index: 0,
       calendarUrl:
-        "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Marriage%20-%20SHABAS%20Weds%20FIZA ASHEEM&dates=20260406T110000/20260406T140000&location=Mythree%20Auditorium%2C%2026MM%2BHHF%2C%20Kamanam%2C%20Kerala%20679325&ctz=Asia/Kolkata",
+        "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Marriage%20-%20SHABAZ%20Weds%20FIZA ASHEEM&dates=20260406T110000/20260406T140000&location=Mythree%20Auditorium%2C%2026MM%2BHHF%2C%20Kamanam%2C%20Kerala%20679325&ctz=Asia/Kolkata",
     },
     {
       title: "",
@@ -986,7 +986,7 @@ export default function Home() {
       time: "7:30 PM Onwards",
       index: 1,
       calendarUrl:
-        "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Reception%20-%20SHABAS%20Weds%20FIZA ASHEEM&dates=20260412T193000/20260412T230000&location=Poroppad%2C%20Thrikkaripur&ctz=Asia/Kolkata",
+        "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Reception%20-%20SHABAZ%20Weds%20FIZA ASHEEM&dates=20260412T193000/20260412T230000&location=Poroppad%2C%20Thrikkaripur&ctz=Asia/Kolkata",
     },
   ];
 
@@ -1017,9 +1017,9 @@ export default function Home() {
       {!isLoading && (
         <ScrollExpandMedia
           mediaType="image"
-          mediaSrc="/ashmlu.jpg"
+          mediaSrc="/shabafiz.jpg"
           bgImageSrc="/invite/Background.png"
-          names={["SHABAS", "FIZA ASHEEM"]}
+          names={["SHABAZ", "FIZA ASHEEM"]}
           date="APR 6 & 12 . 2026"
         >
           {/* INVITATION MESSAGE */}
@@ -1072,7 +1072,7 @@ export default function Home() {
                   className="flex items-center justify-center gap-2 md:gap-12 w-full"
                 >
                   <h3 className="text-4xl md:text-7xl lg:text-[5.5rem] text-[#A88B5C] drop-shadow-md leading-tight text-center flex-1">
-                      SHABAS
+                      SHABAZ
                   </h3>
 
                   <span className="text-3xl md:text-6xl lg:text-7xl text-[#8A7454] opacity-70 shrink-0 px-1 md:px-0">

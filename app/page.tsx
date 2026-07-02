@@ -455,15 +455,17 @@ function BohoDecor() {
 
       {/* Hanging Decorations */}
       <div className="absolute top-0 inset-x-0 w-full flex justify-between px-4 md:px-20">
-        <img
+        <Image
           src="/invite/Shape_.png"
           alt=""
+          fill
           className="w-32 md:w-56 h-auto origin-top"
           style={{ willChange: "transform" }}
         />
-        <img
+        <Image
           src="/invite/Shape_2.png"
           alt=""
+          fill
           className="w-32 md:w-56 h-auto origin-top"
           style={{ transform: "", willChange: "transform" }}
         />
@@ -488,7 +490,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
 
     // Preload the hero image during the loading screen
     const img = new window.Image();
-    img.src = "/ashmlu.jpg";
+    img.src = "/shabafiz.jpg";
 
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -570,7 +572,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="text-3xl md:text-5xl font-serif text-[#1B365D] font-bold tracking-widest"
             >
-              SHABAS
+              SHABAZ
             </motion.h2>
             <motion.span
               initial={{ opacity: 0, scale: 0 }}
@@ -586,7 +588,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
               transition={{ delay: 0.9, duration: 0.8 }}
               className="text-3xl md:text-5xl font-serif text-[#1B365D] font-bold tracking-widest"
             >
-              FIZA 
+              FIZA
             </motion.h2>
           </div>
         </motion.div>
@@ -637,9 +639,9 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
             style={{ backfaceVisibility: "hidden" }}
             animate={{ opacity: stage >= 1 ? 0 : 1 }}
           >
-            A
+            S
             <span className="text-xl md:text-2xl opacity-80 mx-0.5">&amp;</span>
-            A
+            F
           </motion.div>
         </motion.div>
       </div>
@@ -667,18 +669,19 @@ function CountdownTimer() {
       };
     };
 
-    let timer: ReturnType<typeof setInterval>;
-
     const updateTime = () => {
       const { days, hours, minutes, isReached } = calc();
       setTimeLeft({ days, hours, minutes });
-      if (isReached && timer) {
-        clearInterval(timer);
+      if (isReached) {
+        // timer will be cleared in the cleanup using the interval id
       }
     };
 
+    const timer: ReturnType<typeof setInterval> = setInterval(
+      updateTime,
+      60000,
+    );
     updateTime();
-    timer = setInterval(updateTime, 60000);
     return () => clearInterval(timer);
   }, []);
 
@@ -868,11 +871,14 @@ function InfoCard({ icon, title, description, index }: InfoCardProps) {
       className="text-center p-6 md:p-8 rounded-xl bg-[#0D1B2E] backdrop-blur-md border border-gold/20 shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:border-gold/50 hover:shadow-[0_0_30px_rgba(192,154,83,0.2)] transition-all duration-500 group relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-[#1B365D]/50 pointer-events-none" />
-      <img
-        src="/mandala-pattern.png"
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover opacity-[0.1] mix-blend-screen pointer-events-none"
-      />
+      <div className="absolute inset-0 pointer-events-none">
+        <Image
+          src="/mandala-pattern.png"
+          alt=""
+          fill
+          className="object-cover opacity-[0.1] mix-blend-screen"
+        />
+      </div>
 
       <motion.div
         className="absolute inset-0 rounded-xl border border-gold/0 group-hover:border-gold/30"
@@ -962,11 +968,12 @@ export default function Home() {
       subtitle: "",
       emoji: "",
       date: "Sunday, August 9th 2026",
-      venue: "Miami Convention Center,Kozhikode-Kuttiyadi Road Thalakkulathur, Andikode, Kerala 673317",
-      time: "5:00 PM Onwards",
+      venue:
+        "Miami Convention Center,Kozhikode-Kuttiyadi Road Thalakkulathur, Andikode, Kerala 673317",
+      time: "6:00 PM Onwards",
       index: 0,
       calendarUrl:
-        "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Marriage%20-%20SHABAS%20Weds%20FIZA%20ASHEEM&dates=20260809T110000/20260809T140000&location=Miami%20Convention%20Center%2CKozhikode-Kuttiyadi%20Road%20Thalakkulathur%2C%20Andikode%2C%20Kerala%20673317&ctz=Asia/Kolkata",
+        "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Marriage%20-%20SHABAZ%20Weds%20FIZA%20ASHEEM&dates=20260809T180000/20260809T210000&location=Miami%20Convention%20Center%2CKozhikode-Kuttiyadi%20Road%20Thalakkulathur%2C%20Andikode%2C%20Kerala%20673317&ctz=Asia/Kolkata",
     },
     // Walima card hidden for now
     // {
@@ -982,21 +989,22 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-midnight text-[#6C593E] overflow-x-hidden selection:bg-gold/20 relative">
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <img
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden relative">
+        <Image
           src="/invite/Background.png"
           alt=""
-          className="w-full h-full object-cover opacity-5"
+          fill
+          className="object-cover opacity-5"
           style={{ willChange: "transform" }}
         />
       </div>
 
       {/* Multiple Floating Elements */}
-      <FloatingElements />
+      {/* <FloatingElements />
       <StarField />
       <FloatingPetals />
       <FloatingLanterns />
-      <FloatingHearts />
+      <FloatingHearts /> */}
 
       <AnimatePresence>
         {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
@@ -1006,10 +1014,9 @@ export default function Home() {
 
       {!isLoading && (
         <ScrollExpandMedia
-          mediaType="image"
-          mediaSrc="/ashmlu.jpg"
+          mediaSrc="/shabafiz.jpg"
           bgImageSrc="/invite/Background.png"
-          names={["SHABAS ", "FIZA"]}
+          names={["SHABAZ ", "FIZA"]}
           date="AUG 9. 2026"
         >
           {/* INVITATION MESSAGE */}
@@ -1062,7 +1069,7 @@ export default function Home() {
                   className="flex items-center justify-center gap-2 md:gap-12 w-full"
                 >
                   <h3 className="text-4xl md:text-7xl lg:text-[5.5rem] text-[#A88B5C] drop-shadow-md leading-tight text-center flex-1">
-                      Shabas Karim
+                    Shabaz K Karim
                   </h3>
 
                   <span className="text-3xl md:text-6xl lg:text-7xl text-[#8A7454] opacity-70 shrink-0 px-1 md:px-0">
@@ -1070,7 +1077,7 @@ export default function Home() {
                   </span>
 
                   <h3 className="text-4xl md:text-7xl lg:text-[5.5rem] text-[#A88B5C] drop-shadow-md leading-tight text-center flex-1">
-                    Fiza Asheem   
+                    Fiza Asheem
                   </h3>
                 </motion.div>
 
@@ -1085,7 +1092,7 @@ export default function Home() {
                   <div className="text-center flex-1 flex flex-col items-center">
                     <div className="w-12 md:w-24 h-px bg-gradient-to-r from-transparent via-[#C09A53] to-transparent opacity-60 mb-4 md:mb-6" />
                     <p className="max-w-[160px] md:max-w-[280px] px-1 md:px-4">
-                      S/o     RAFEEQ C K <br /> & SHAFEEMA M P 
+                      S/o RAFEEQ C K <br /> & SHAFEEMA M P
                     </p>
                   </div>
                   <div className="w-[50px] md:w-[150px] lg:w-[180px] shrink-0" />{" "}
@@ -1106,9 +1113,10 @@ export default function Home() {
                 transition={{ delay: 0.4, duration: 0.8 }}
                 className="bg-[#0D1B2E] text-white p-10 md:p-14 rounded-xl border border-gold/30 shadow-royal backdrop-blur-sm relative overflow-hidden"
               >
-                <img
+                <Image
                   src="/mughal-floral.png"
                   alt=""
+                  fill
                   className="absolute inset-0 w-full h-full object-cover opacity-[0.1] mix-blend-screen pointer-events-none"
                 />
                 <h2 className="text-3xl md:text-4xl font-serif text-gold-shimmer tracking-widest mb-6">
@@ -1193,9 +1201,10 @@ export default function Home() {
           {/* Footer */}
           <footer className="bg-[#08111D] text-[#F8F5EE] py-12 text-center border-t border-[#8A7454]/20 relative overflow-hidden">
             <div className="absolute bottom-0 inset-x-0 w-full pointer-events-none z-0 flex justify-center opacity-60">
-              <img
+              <Image
                 src="/invite/Shape.png"
                 alt=""
+                fill
                 className="w-[800px] h-auto translate-y-1/2 opacity-5"
                 style={{ willChange: "transform" }}
               />
