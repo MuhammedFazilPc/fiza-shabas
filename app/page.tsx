@@ -1092,7 +1092,7 @@ export default function Home() {
                   <div className="text-center flex-1 flex flex-col items-center">
                     <div className="w-12 md:w-24 h-px bg-gradient-to-r from-transparent via-[#C09A53] to-transparent opacity-60 mb-4 md:mb-6" />
                     <p className="max-w-[160px] md:max-w-[280px] px-1 md:px-4">
-                      S/o RAFEEQ C K <br /> & SHAFEEMA M P
+                      S/o RAFEEQUE C K <br /> & SHAFEEMA M P
                     </p>
                   </div>
                   <div className="w-[50px] md:w-[150px] lg:w-[180px] shrink-0" />{" "}
