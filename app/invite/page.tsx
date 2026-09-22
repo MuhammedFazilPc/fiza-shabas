@@ -568,7 +568,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="text-3xl md:text-5xl font-serif text-[#1B365D] font-bold tracking-widest"
             >
-              SHABAZ
+              RISHAB
             </motion.h2>
             <motion.span
               initial={{ opacity: 0, scale: 0 }}
@@ -584,7 +584,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
               transition={{ delay: 0.9, duration: 0.8 }}
               className="text-3xl md:text-5xl font-serif text-[#1B365D] font-bold tracking-widest"
             >
-              FIZA ASHEEM
+              LEMYA CRIEF
             </motion.h2>
           </div>
         </motion.div>
@@ -971,7 +971,7 @@ export default function Home() {
       time: "7:30 PM Onwards",
       index: 1,
       calendarUrl:
-        "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Reception%20-%20SHABAZ%20Weds%20FIZA ASHEEM&dates=20260412T193000/20260412T230000&location=Poroppad%2C%20Thrikkaripur&ctz=Asia/Kolkata",
+        "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Reception%20-%20RISHAB%20Weds%20LEMYA CRIEF&dates=20260412T193000/20260412T230000&location=Poroppad%2C%20Thrikkaripur&ctz=Asia/Kolkata",
     },
   ];
 
@@ -1005,7 +1005,7 @@ export default function Home() {
           // mediaType="image"
           mediaSrc="/shabafiz.jpg"
           bgImageSrc="/invite/Background.png"
-          names={["SHABAZ", "FIZA ASHEEM"]}
+          names={["RISHAB", "LEMYA CRIEF"]}
           date="APR 12 . 2026"
         >
           {/* INVITATION MESSAGE */}
@@ -1058,7 +1058,7 @@ export default function Home() {
                   className="flex items-center justify-center gap-2 md:gap-12 w-full"
                 >
                   <h3 className="text-4xl md:text-7xl lg:text-[5.5rem] text-[#A88B5C] drop-shadow-md leading-tight text-center flex-1">
-                      SHABAZ
+                      RISHAB
                   </h3>
 
                   <span className="text-3xl md:text-6xl lg:text-7xl text-[#8A7454] opacity-70 shrink-0 px-1 md:px-0">
@@ -1066,7 +1066,7 @@ export default function Home() {
                   </span>
 
                   <h3 className="text-4xl md:text-7xl lg:text-[5.5rem] text-[#A88B5C] drop-shadow-md leading-tight text-center flex-1">
-                    FIZA ASHEEM   
+                    LEMYA CRIEF   
                   </h3>
                 </motion.div>
 

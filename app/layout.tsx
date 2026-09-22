@@ -45,20 +45,20 @@ const amiri = Amiri({
 });
 
 export const metadata: Metadata = {
-  title: "SHABAZ Weds FIZA  — Wedding Invitation",
+  title: "RISHAB Weds LEMYA  — Wedding Invitation",
   description: "You are invited to our wedding.",
   openGraph: {
     title: "You are invited to our wedding",
     description:
-      "Join us on our special day to celebrate the Marriage of SHABAZ & FIZA .",
-    url: "https://fiza-weds-shabaz.vercel.app", // Adjust if actual endpoint is known
-    siteName: "SHABAZ Weds Fiza",
+      "Join us on our special day to celebrate the Marriage of RISHAB & LEMYA .",
+    url: "https://rishab-weds-lemya.vercel.app", // Adjust if actual endpoint is known
+    siteName: "RISHAB Weds LEMYA",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "SHABAZ & FIZA Marriage Invitation Preview",
+        alt: "RISHAB & LEMYA Marriage Invitation Preview",
       },
     ],
     locale: "en_US",

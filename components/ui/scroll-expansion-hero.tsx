@@ -202,7 +202,7 @@ const ScrollExpandMedia = ({
                 initial={{ opacity: 1 }}
                 animate={{ opacity: 1 - scrollProgress * 2 }}
               >
-                بِسْمِ ٱللّٰهِ ٱلرَّحْمٰنِ ٱلرَّحِيمِ
+                {/* بِسْمِ ٱللّٰهِ ٱلرَّحْمٰنِ ٱلرَّحِيمِ */}
               </motion.p>
 
               {/* Foreground Typography Container */}
@@ -216,7 +216,7 @@ const ScrollExpandMedia = ({
                   initial={{ opacity: 1 }}
                   animate={{ opacity: 1 - scrollProgress * 2 }}
                 >
-                  بِسْمِ ٱللّٰهِ ٱلرَّحْمٰنِ ٱلرَّحِيمِ
+                  {/* بِسْمِ ٱللّٰهِ ٱلرَّحْمٰنِ ٱلرَّحِيمِ */}
                 </motion.p>
                 <div className="relative inline-block w-full">
                   <motion.h2

@@ -572,7 +572,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="text-3xl md:text-5xl font-serif text-[#1B365D] font-bold tracking-widest"
             >
-              SHABAZ
+              RISHAB
             </motion.h2>
             <motion.span
               initial={{ opacity: 0, scale: 0 }}
@@ -588,7 +588,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
               transition={{ delay: 0.9, duration: 0.8 }}
               className="text-3xl md:text-5xl font-serif text-[#1B365D] font-bold tracking-widest"
             >
-              FIZA
+              LEMYA
             </motion.h2>
           </div>
         </motion.div>
@@ -652,11 +652,11 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
 /* ============================================================
    COUNTDOWN TIMER
    ============================================================ */
-function CountdownTimer() {
+function CountdownTimer({ timerDate }: { timerDate: string }) {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 });
 
   useEffect(() => {
-    const target = new Date("2026-08-09T11:30:00+05:30").getTime();
+    const target = new Date(timerDate).getTime();
 
     const calc = () => {
       const now = Date.now();
@@ -752,6 +752,7 @@ interface EventCardProps {
   time: string;
   index: number;
   calendarUrl: string;
+  timerDate:string;
 }
 
 function EventCard({
@@ -763,6 +764,7 @@ function EventCard({
   time,
   index,
   calendarUrl,
+  timerDate
 }: EventCardProps) {
   return (
     <motion.div
@@ -817,7 +819,7 @@ function EventCard({
 
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 mb-20">
         <motion.a
-          href="https://maps.app.goo.gl/XJbeoosD85EDrzdM9"
+          href="https://maps.app.goo.gl/RDsbib2QzVkwAGU56"
           target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.05 }}
@@ -842,7 +844,7 @@ function EventCard({
 
       <div className="w-full h-px bg-gradient-to-r from-transparent via-[#A88B5C]/30 to-transparent mb-16 max-w-md mx-auto" />
 
-      <CountdownTimer />
+      <CountdownTimer timerDate={timerDate} />
     </motion.div>
   );
 }
@@ -963,28 +965,36 @@ export default function Home() {
   }, [isLoading]);
 
   const events: EventCardProps[] = [
-    {
-      title: "",
-      subtitle: "",
-      emoji: "",
-      date: "Sunday, August 9th 2026",
-      venue:
-        "Miami Convention Center,Kozhikode-Kuttiyadi Road Thalakkulathur, Andikode, Kerala 673317",
-      time: "6:00 PM Onwards",
-      index: 0,
-      calendarUrl:
-        "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Marriage%20-%20SHABAZ%20Weds%20FIZA%20ASHEEM&dates=20260809T180000/20260809T210000&location=Miami%20Convention%20Center%2CKozhikode-Kuttiyadi%20Road%20Thalakkulathur%2C%20Andikode%2C%20Kerala%20673317&ctz=Asia/Kolkata",
-    },
-    // Walima card hidden for now
     // {
     //   title: "Reception",
     //   subtitle: "Walima",
     //   emoji: "✨",
-    //   date: "Saturday, April 11th 2026",
-    //   venue: "Rambagh Palace, Jaipur",
-    //   time: "7:30 PM Onwards",
-    //   index: 1,
+    //   date: "Sunday, October 25th 2026",
+    //   venue: "WHITE ROSE CONVENTION CENTRE THACHANNA , AREEKODE",
+    //   time: "4:00 PM Onwards",
+    //   index: 0,
+    //   timerDate: "2026-10-25T16:00:00+05:30",
+    //   calendarUrl:
+    //     "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Marriage%20-%20RISHAB%20MOHAMMED%20Weds%20LEMYA%20CREIF&dates=20261025T160000/20261025T170000&location=WHITE ROSE CONVENTION CENTRE THACHANNA , Thachamparambu Rd, Urangattiri, Keralam 673639&ctz=Asia/Kolkata",
+    
     // },
+    {
+      // title: "Reception",
+      // subtitle: "Wedding",
+      // emoji: "✨",
+      title: "",
+      subtitle: "",
+      emoji: "",
+      date: "Monday, October 26th 2026",
+      venue:
+        "CAPKON Convention Center, Kodal Nadakkavu, CAPKON City, Pantheeramkavu",
+      time: "5:00 PM Onwards",
+      index: 1,
+      timerDate: "2026-10-26T17:00:00+05:30",
+      calendarUrl:
+        "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Marriage%20-%20RISHAB%20MOHAMMED%20Weds%20LEMYA%20CREIF&dates=20261026T170000/20261026T200000&location=CAPKON%20Convention%20Center%2C%20Kodal%20Nadakkavu%2C%20CAPKON%20City%2C%20Pantheeramkavu%2C%20Kozhikode%2C%20Keralam%20673019&ctz=Asia/Kolkata",
+    },
+    
   ];
 
   return (
@@ -1010,14 +1020,14 @@ export default function Home() {
         {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
       </AnimatePresence>
 
-      <AudioPlayer />
+      {/* <AudioPlayer /> */}
 
       {!isLoading && (
         <ScrollExpandMedia
           mediaSrc="/shabafiz.jpg"
           bgImageSrc="/invite/Background.png"
-          names={["SHABAZ ", "FIZA"]}
-          date="AUG 9. 2026"
+          names={["RISHAB ", "LEMYA"]}
+          date=" 26th Oct 2026"
         >
           {/* INVITATION MESSAGE */}
           <section className="py-24 md:py-36 bg-royal relative overflow-hidden texture-lace-cutout">
@@ -1068,16 +1078,16 @@ export default function Home() {
                   transition={{ delay: 0.2 }}
                   className="flex items-center justify-center gap-2 md:gap-12 w-full"
                 >
-                  <h3 className="text-4xl md:text-7xl lg:text-[5.5rem] text-[#A88B5C] drop-shadow-md leading-tight text-center flex-1">
-                    Shabaz R Karim
+                  <h3 className="text-[1.5rem] md:text-7xl lg:text-[5.5rem] text-[#A88B5C] drop-shadow-md leading-tight text-center flex-1">
+                    RISHAB
                   </h3>
 
-                  <span className="text-3xl md:text-6xl lg:text-7xl text-[#8A7454] opacity-70 shrink-0 px-1 md:px-0">
+                  <span className="text-2xl md:text-6xl lg:text-7xl text-[#8A7454] opacity-70 shrink-0 px-1 md:px-0">
                     weds
                   </span>
 
-                  <h3 className="text-4xl md:text-7xl lg:text-[5.5rem] text-[#A88B5C] drop-shadow-md leading-tight text-center flex-1">
-                    Fiza Asheem
+                  <h3 className="text-[1.5rem]  md:text-7xl lg:text-[5.5rem] text-[#A88B5C] drop-shadow-md leading-tight text-center flex-1">
+                    LEMYA
                   </h3>
                 </motion.div>
 
@@ -1092,7 +1102,7 @@ export default function Home() {
                   <div className="text-center flex-1 flex flex-col items-center">
                     <div className="w-12 md:w-24 h-px bg-gradient-to-r from-transparent via-[#C09A53] to-transparent opacity-60 mb-4 md:mb-6" />
                     <p className="max-w-[160px] md:max-w-[280px] px-1 md:px-4">
-                      S/o RAFEEQUE C K <br /> & SHAFEEMA M P
+                      S/o NAZAR <br /> & RANEENA AHAMMED
                     </p>
                   </div>
                   <div className="w-[50px] md:w-[150px] lg:w-[180px] shrink-0" />{" "}
@@ -1100,7 +1110,7 @@ export default function Home() {
                   <div className="text-center flex-1 flex flex-col items-center">
                     <div className="w-12 md:w-24 h-px bg-gradient-to-r from-transparent via-[#C09A53] to-transparent opacity-60 mb-4 md:mb-6" />
                     <p className="max-w-[160px] md:max-w-[280px] px-1 md:px-4">
-                      D/o ASHEEM P S <br /> & SHYNI ASHEEM
+                      D/o CREIF KANHIRALA <br /> & ALEEFA SALAM
                     </p>
                   </div>
                 </motion.div>
@@ -1179,7 +1189,7 @@ export default function Home() {
 
           {/* Floating Location Button */}
           <motion.a
-            href="https://maps.app.goo.gl/XJbeoosD85EDrzdM9"
+            href="https://maps.app.goo.gl/RDsbib2QzVkwAGU56"
             target="_blank"
             rel="noopener noreferrer"
             className="fixed bottom-6 right-6 z-50 bg-[#08111D] text-white px-5 py-3 rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.4)] border border-gold/30 flex items-center gap-2.5 font-body text-xs tracking-[0.15em] uppercase hover:bg-[#1B365D] hover:border-gold/50 transition-all backdrop-blur-md"
