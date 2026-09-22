@@ -639,9 +639,9 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
             style={{ backfaceVisibility: "hidden" }}
             animate={{ opacity: stage >= 1 ? 0 : 1 }}
           >
-            S
+            R
             <span className="text-xl md:text-2xl opacity-80 mx-0.5">&amp;</span>
-            F
+            L
           </motion.div>
         </motion.div>
       </div>
