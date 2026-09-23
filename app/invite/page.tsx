@@ -486,7 +486,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
 
     // Preload the hero image during the loading screen
     const img = new window.Image();
-    img.src = "/shabafiz.jpg";
+    img.src = "/rishab-hero.jpg";
 
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -1003,7 +1003,7 @@ export default function Home() {
       {!isLoading && (
         <ScrollExpandMedia
           // mediaType="image"
-          mediaSrc="/shabafiz.jpg"
+          mediaSrc="/rishab-hero.jpg"
           bgImageSrc="/invite/Background.png"
           names={["RISHAB", "LEMYA CRIEF"]}
           date="APR 12 . 2026"
