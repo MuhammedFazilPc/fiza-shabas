@@ -490,7 +490,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
 
     // Preload the hero image during the loading screen
     const img = new window.Image();
-    img.src = "/shabafiz.jpg";
+    img.src = "/rishab-hero.jpg";
 
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -1020,11 +1020,11 @@ export default function Home() {
         {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
       </AnimatePresence>
 
-      {/* <AudioPlayer /> */}
+      <AudioPlayer />
 
       {!isLoading && (
         <ScrollExpandMedia
-          mediaSrc="/shabafiz.jpg"
+          mediaSrc="/rishab-hero.jpg"
           bgImageSrc="/invite/Background.png"
           names={["RISHAB ", "LEMYA"]}
           date=" 26th Oct 2026"
