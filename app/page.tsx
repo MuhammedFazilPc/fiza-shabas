@@ -1063,13 +1063,13 @@ export default function Home() {
                   Under the blessings of Allah (SWT)
                 </p>
                 <p className="text-[#8A7454] text-xs md:text-sm tracking-[0.3em] uppercase font-body leading-loose">
-                  and our beloved parents
+                and our beloved parents  <br /> Nazar & Raneena
                 </p>
               </motion.div>
 
               <SectionDivider />
 
-              <div className="w-full flex flex-col items-center my-16 md:my-24 font-script">
+              <div className="w-full flex flex-col items-center my-16 md:my-24 font-serif uppercase tracking-[0.2em] md:tracking-[0.3em]">
                 {/* Names Row */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -1078,15 +1078,15 @@ export default function Home() {
                   transition={{ delay: 0.2 }}
                   className="flex items-center justify-center gap-2 md:gap-12 w-full"
                 >
-                  <h3 className="text-[1.5rem] md:text-7xl lg:text-[5.5rem] text-[#A88B5C] drop-shadow-md leading-tight text-center flex-1">
+                  <h3 className="text-3xl md:text-7xl lg:text-[5.5rem] text-[#A88B5C] drop-shadow-md leading-tight text-center flex-1">
                     RISHAB
                   </h3>
 
-                  <span className="text-2xl md:text-6xl lg:text-7xl text-[#8A7454] opacity-70 shrink-0 px-1 md:px-0">
+                  <span className="text-[0.8rem] md:text-6xl lg:text-7xl text-[#A88B5C] opacity-70 shrink-0 px-1 md:px-0 font-script">
                     weds
                   </span>
 
-                  <h3 className="text-[1.5rem]  md:text-7xl lg:text-[5.5rem] text-[#A88B5C] drop-shadow-md leading-tight text-center flex-1">
+                  <h3 className="text-3xl md:text-7xl lg:text-[5.5rem] text-[#A88B5C] drop-shadow-md leading-tight text-center flex-1">
                     LEMYA
                   </h3>
                 </motion.div>
